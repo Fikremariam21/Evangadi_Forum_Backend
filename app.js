@@ -38,7 +38,7 @@ const answerRoute = require('./routes/answerRoute');
 app.use("/api/users", userRoute);
 
 // questions routes middleware
-app.use("/api", questionRoute);
+app.use("/api/question", questionRoute);
 
 // answers routes middleware
 app.use('/api', answerRoute); 
