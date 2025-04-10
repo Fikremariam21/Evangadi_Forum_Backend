@@ -7,7 +7,11 @@ const app = express(); // Initialize express app instance
 // Middlewares
 const PORT = process.env.DB_PORT || 5000; // Set the port to listen on, default to 5000 if not specified in environment variables
 app.use(express.json()); // Parse incoming request body in JSON format
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000", // Replace with your frontend's URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
 app.get("/", (req, res) => {
   res.status(200).send("Server is up and running");
 })
@@ -38,7 +42,7 @@ const answerRoute = require('./routes/answerRoute');
 app.use("/api/users", userRoute);
 
 // questions routes middleware
-app.use("/api/question", questionRoute);
+app.use("/api", questionRoute);
 
 // answers routes middleware
 app.use('/api', answerRoute); 
@@ -95,4 +99,3 @@ app.get("/createTable", async (req, res) => {
 module.exports = app;
 
 
- 
