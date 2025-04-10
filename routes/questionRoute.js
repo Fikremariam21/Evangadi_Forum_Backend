@@ -13,7 +13,7 @@ router.post("/create-question", authMiddleware, createQuestion);
 router.put("/update-question/:question_id", authMiddleware, updateQuestion); 
 
 // Use GET for retrieving all questions
-router.get("/api/all/questions", authMiddleware, allQuestions);
+router.get("/all-questions", authMiddleware, allQuestions);
 router.delete("/questions/:question_id", authMiddleware, deleteQuestion); 
 
 
@@ -36,3 +36,4 @@ module.exports = router;
 
 
 
+ 
